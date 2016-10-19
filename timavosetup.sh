@@ -90,8 +90,12 @@ git clone --depth=50 --branch=master https://github.com/ozagordi/VirMet.git \
     && /opt/miniconda/bin/python3 setup.py install
 
 
-# configure users and login passwords
+# rmate standalone https://github.com/aurora/rmate
+curl -Lo /usr/local/bin/rmate https://raw.githubusercontent.com/aurora/rmate/master/rmate
+chmod a+x /usr/local/bin/rmate
 
+
+# configure users and login passwords
 addgroup --gid 1001 ngs
 
 yes | adduser --uid 501 --gid 1001 --disabled-password ozagordi --quiet
@@ -121,3 +125,4 @@ chmod 700 ~mihuber/.ssh/
 chmod 400 ~mihuber/.ssh/authorized_keys
 bash -c "echo -e 'export PATH=\$PATH:/usr/local/edirect:/opt/miniconda/bin' >> ~mihuber/.bash_profile"
 chown -R mihuber:ngs ~mihuber/.bash_profile
+
