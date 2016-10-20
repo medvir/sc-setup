@@ -20,6 +20,7 @@ then
     apt install -y automake \
     build-essential \
     bwa \
+    cmake \
     docker \
     emboss \
     libncurses5-dev \
@@ -66,6 +67,13 @@ cd ..
 libtoolize
 ./bootstrap && ./configure SAMTOOLS=${PWD}/samtools-1.1/ HTSLIB=${PWD}/samtools-1.1/htslib-1.1/ && \
 make -j 8 && make install
+cd ..
+
+# install freebayes
+git clone --recursive git://github.com/ekg/freebayes.git
+make -j 8
+make && sudo make install
+cd vcflib && make -j 8
 
 # install edirect
 cd /usr/local
