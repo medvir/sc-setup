@@ -1,4 +1,4 @@
-# sc-setup
+# sc-setup [OUTDATED: see sc-ansible repo]
 Configuration scripts for ScienceCloud
 
 ## timavo
